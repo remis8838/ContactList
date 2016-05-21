@@ -1,25 +1,132 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aqf-34-sdM">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Dummy-->
+        <scene sceneID="nnl-Bl-nXW">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Okk-IG-U8p" customClass="ViewController" customModule="ContactListView" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="S9l-k2-0PW"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vgc-z2-TDN"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <view key="view" contentMode="scaleToFill" id="rab-Lu-fMC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YCf-RF-znX">
+                                <rect key="frame" x="77" y="311" width="220" height="45"/>
+                                <color key="backgroundColor" red="0.11241515739999999" green="0.14356051419999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="GLe-bj-Cl1"/>
+                                    <constraint firstAttribute="width" constant="220" id="omp-4I-XFq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Open AddressBook">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="c8c-lN-qCe" kind="show" id="r7a-Ju-uRy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YCf-RF-znX" firstAttribute="centerY" secondItem="rab-Lu-fMC" secondAttribute="centerY" id="NiG-fz-rIf"/>
+                            <constraint firstItem="YCf-RF-znX" firstAttribute="centerX" secondItem="rab-Lu-fMC" secondAttribute="centerX" id="sNq-JP-pG6"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Dummy" id="pfc-hv-8gd"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8LQ-ow-Y3D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1030.5" y="-1004.5"/>
+        </scene>
+        <!--Contacts-->
+        <scene sceneID="2UC-BQ-rmH">
+            <objects>
+                <viewController id="c8c-lN-qCe" customClass="ContactsViewController" customModule="ContactListView" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="C9o-4P-1x0"/>
+                        <viewControllerLayoutGuide type="bottom" id="eJA-cA-US9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="r0A-Mi-4YE">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="55" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6TK-NN-ia0">
+                                <rect key="frame" x="-4" y="44" width="383" height="559"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="c8c-lN-qCe" id="CvR-ml-WiW"/>
+                                    <outlet property="delegate" destination="c8c-lN-qCe" id="hY0-Ow-3ii"/>
+                                </connections>
+                            </tableView>
+                            <searchBar userInteractionEnabled="NO" contentMode="redraw" text="" placeholder="Search by name" translatesAutoresizingMaskIntoConstraints="NO" id="Olh-FB-1K6">
+                                <rect key="frame" x="-4" y="0.0" width="383" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="c8c-lN-qCe" id="sj5-fg-DFS"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="Olh-FB-1K6" firstAttribute="leading" secondItem="r0A-Mi-4YE" secondAttribute="leadingMargin" constant="-20" id="1Y6-ec-izL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Olh-FB-1K6" secondAttribute="trailing" constant="-20" id="CQG-jo-xrf"/>
+                            <constraint firstItem="Olh-FB-1K6" firstAttribute="top" secondItem="C9o-4P-1x0" secondAttribute="bottom" id="K9m-8z-DCs"/>
+                            <constraint firstItem="6TK-NN-ia0" firstAttribute="top" secondItem="Olh-FB-1K6" secondAttribute="bottom" id="fvK-Jj-qm5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6TK-NN-ia0" secondAttribute="trailing" constant="-20" id="oN6-Pv-hbP"/>
+                            <constraint firstItem="6TK-NN-ia0" firstAttribute="leading" secondItem="r0A-Mi-4YE" secondAttribute="leadingMargin" constant="-20" id="sWE-YN-yPD"/>
+                            <constraint firstItem="eJA-cA-US9" firstAttribute="top" secondItem="6TK-NN-ia0" secondAttribute="bottom" id="sjy-ss-xU5"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="k4u-0f-0rS" appends="YES" id="CMZ-Ms-BzS"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" title="Contacts" id="9mj-d2-LjL">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="m26-Nx-XUV"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="searchBar" destination="Olh-FB-1K6" id="uXO-ud-jgB"/>
+                        <outlet property="tableView" destination="6TK-NN-ia0" id="fxL-rM-KXN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x1y-SU-4UZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="k4u-0f-0rS">
+                    <connections>
+                        <action selector="tapped:" destination="c8c-lN-qCe" id="ko0-rF-mdm"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1575.5" y="-1004.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="XdQ-Fk-Gwg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aqf-34-sdM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IuJ-h1-4Aa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Okk-IG-U8p" kind="relationship" relationship="rootViewController" id="ZYQ-6y-Lyk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sRz-1b-ahC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="537.5" y="-1004.5"/>
         </scene>
     </scenes>
 </document>
